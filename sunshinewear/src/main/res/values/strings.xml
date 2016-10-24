@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+    <string name="message">Sunshine</string>
+    <string name="my_digital_name">Sunshine</string>
+
+    <string name="info_not_available">No Data Available</string>
+</resources>
