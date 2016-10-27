@@ -178,8 +178,10 @@ public class MySunshineWatchFace extends CanvasWatchFaceService {
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        weatherTempIcon = loadBitmapFromAsset(googleApiClient, photo);
-                                        Log.d("WEATHER-ICON",""+weatherTempIcon.getWidth());
+                                        if(photo != null){
+                                            weatherTempIcon = loadBitmapFromAsset(googleApiClient, photo);
+                                            Log.d("WEATHER-ICON",""+weatherTempIcon.getWidth());
+                                        }
                                     }
                                 }).start();
                             } catch (Exception e) {
@@ -333,11 +335,15 @@ public class MySunshineWatchFace extends CanvasWatchFaceService {
                                                     weatherTempHigh = dataMapItem.getDataMap().getString(HIGH_TEMP_KEY);
                                                     weatherTempLow = dataMapItem.getDataMap().getString(LOW_TEMP_KEY);
                                                     final Asset photo = dataMapItem.getDataMap().getAsset(WEATHER_CONDITIONS_ICON_KEY);
+
                                                     new Thread(new Runnable() {
                                                         @Override
                                                         public void run() {
-                                                            weatherTempIcon = loadBitmapFromAsset(googleApiClient, photo);
-                                                            Log.d("WEATHER-ICON",""+weatherTempIcon.getWidth());
+                                                            if(photo != null){
+                                                                weatherTempIcon = loadBitmapFromAsset(googleApiClient, photo);
+                                                                Log.d("WEATHER-ICON",""+weatherTempIcon.getWidth());
+                                                            }
+
                                                         }
                                                     }).start();
 
